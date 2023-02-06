@@ -8,7 +8,10 @@ const { connectMongodb } = require("./v1/helpers");
 const app = express();
 const client = process.env.CLIENT_URL;
 
-app.use(morgan("dev"));
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(
