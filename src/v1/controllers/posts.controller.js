@@ -46,6 +46,9 @@ const bots = [
 const botsLength = bots.length;
 const NUMBER_POSTS = 10;
 const timeRandom = 24 * 60 * 60 * 1000 * 7;
+const likeCount = 100000000;
+const commentCount = 1000000;
+const shareCount = 100000;
 
 const generatePosts = () => {
   const posts = [];
@@ -63,8 +66,10 @@ const generatePosts = () => {
       createAt: createAt - Math.floor(Math.random() * timeRandom),
       title:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam architecto suscipit nobis excepturi necessitatibus fugiat deleniti placeat officia cumque. Excepturi blanditiis labore cum. Voluptatum quos, cum animi tempora odio minima.",
-      commentCount: 12,
-      likeCount: 100,
+      likeCount: Math.floor(Math.random() * likeCount),
+      commentCount: Math.floor(Math.random() * commentCount),
+      shareCount:
+        Math.random() > 0.5 ? Math.floor(Math.random() * shareCount) : 0,
     });
   }
   return posts;

@@ -41,27 +41,6 @@ const usersSchema = Schema({
     default: "",
   },
 
-  friendCount: {
-    type: Number,
-    default: 0,
-  },
-  friendList: [
-    {
-      id: { type: mongoose.SchemaTypes.ObjectId, require: true },
-    },
-  ],
-
-  requestFriendCount: {
-    type: Number,
-    default: 0,
-  },
-  
-  requestFriendList: [
-    {
-      id: { type: mongoose.SchemaTypes.ObjectId, require: true },
-    },
-  ],
-
   fullNameSearch: {
     type: String,
     required: true,
@@ -75,7 +54,7 @@ const usersSchema = Schema({
     type: String,
     required: true,
     default: function () {
-      return `${this.firstName} ${this.surnName}`;
+      return `${this.firstName.trim()} ${this.surnName.trim()}`;
     },
   },
 
